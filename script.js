@@ -95,14 +95,14 @@ function draw() {
             try { HunterArr[i].eat() } catch (err) { continue };
         }
         count += 1
-        if (count % 3 == 0 && count < 10) {
+        if (count % 3 == 0 && count < 90) {
             x = Math.floor(Math.random() * (matrix.length + 1))
             y = Math.floor(Math.random() * (matrix.length + 1))
             console.log(x, y)
             var p = new AddCharacters(x, y)
             p.add()
         }
-        else if (count == 10) {
+        else if (count == 90) {
             var c = new Cleaner()
             c.clean()
         }
