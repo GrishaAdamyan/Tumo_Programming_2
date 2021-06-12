@@ -367,67 +367,45 @@ class Hunter {
 }
 
 // 2
-// class AddCharacters {
-//     constructor(x, y) {
-//         this.x = x;
-//         this.y = y;
-//     }
+class AddCharacters {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
 
-//     getNewCoordinates() {
-//         this.directions = [
-//             [this.x - 1, this.y - 1],
-//             [this.x, this.y - 1],
-//             [this.x + 1, this.y - 1],
-//             [this.x - 1, this.y],
-//             [this.x + 1, this.y],
-//             [this.x - 1, this.y + 1],
-//             [this.x, this.y + 1],
-//             [this.x + 1, this.y + 1]
-//         ];
-//     }
+    add() {
+        for (var i = 0; i < matrix.length; i++) {
+            for (var j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] == 0) {
+                    var a = Math.floor(Math.random() * 100)
+                    if (a >= 0 && a < 60) {
+                        matrix[i][j] = 0
+                    }
+                    else if (a >= 60 && a < 70) {
+                        matrix[i][j] = 1
+                    }
+                    else if (a >= 70 && a < 80) {
+                        matrix[i][j] = 2
+                    }
+                    else if (a >= 80 && a < 90) {
+                        matrix[i][j] = 3
+                    }
+                    else if (a >= 90 && a < 100) {
+                        matrix[i][j] = 4
+                    }
+                }
+            }
+        }
+    }
+}
 
-//     chooseCell(character) {
-//         var found = [];
-//         for (var i in this.directions) {
-//             var x = this.directions[i][0];
-//             var y = this.directions[i][1];
-//             if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-//                 if (matrix[y][x] == character) {
-//                     found.push(this.directions[i]);
-//                 }
-//             }
-//         }
-//         return found;
-//     }
-
-//     mul() {
-//         var emptyCells = this.chooseCell(0)
-//         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
-//         var c = Math.floor(Math.random() * 5)
-//         console.log(c)
-//         if (newCell) {
-//             let newX = newCell[0];
-//             let newY = newCell[1];
-//             matrix[newY][newX] = c;
-
-//             if (c == 1) {
-//                 var gr = new Grass(this.x, this.y)
-//                 CharacterArr.push(gr)
-//             }
-//             else if (c == 2) {
-//                 var ge = new GrassEater(this.x, this.y)
-//                 CharacterArr.push(ge)
-//             }
-//             else if (c == 3) {
-//                 var pr = new Predator(this.x, this.y)
-//                 CharacterArr.push(pr)
-//             }
-//             else if (c == 4) {
-//                 var hunt = new Hunter(this.x, this.y)
-//                 CharacterArr.push(hunt)
-//             }
-//             console.log(c)
-
-//         }
-//     }
-// }
+// 3
+class Cleaner {
+    clean() {
+        for (var i = 0; i < matrix.length; i++) {
+            for (var j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = 0
+            }
+        }
+    }
+}
