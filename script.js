@@ -78,7 +78,7 @@ function draw() {
             }
         }
         for (let i in GrassArr) {
-            try { GrassArr[i].mul() } catch (err) { continue };
+            try { GrassArr[i].mul(5, Grass, GrassArr, 1) } catch (err) { continue };
         }
 
         for (let i in GrassEaterArr) {
