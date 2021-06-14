@@ -32,7 +32,7 @@ class Predator {
         }
         return found;
     }
-
+/*
     mul() {
         var emptyCells = this.chooseCell(0)
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
@@ -50,7 +50,7 @@ class Predator {
 
     move() {
         this.getNewCoordinates()
-        this.energy--
+        this.energy -= 1
         var emptyCells = this.chooseCell(0)
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
@@ -77,7 +77,7 @@ class Predator {
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
-            this.energy++
+            this.energy += 1
             var newX = newCell[0]
             var newY = newCell[1]
 
@@ -106,4 +106,5 @@ class Predator {
             }
         }
     }
+*/
 }

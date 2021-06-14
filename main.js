@@ -29,8 +29,9 @@ class main {
         return found;
     }
 
-    mul(quantity, das, arr, ind){
-        this.multiply++;
+    mul(quantity, das, arr, ind, var_for_mul_and_energy, value){
+        if (var_for_mul_and_energy == this.multiply);
+            var_for_mul_and_energy++;
         var emptyCells = this.chooseCell(0);
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
@@ -42,8 +43,66 @@ class main {
 
             var newGrass = new das(newX, newY, ind);
             arr.push(newGrass);
-            this.multiply = 0;
+            var_for_mul_and_energy = value;
         }
     }
 
+    move(ind, NewElement, das, arr) {
+        this.getNewCoordinates()
+        this.energy -= ind
+        var emptyCells = this.chooseCell(0)
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+
+        if (newCell && this.energy >= 0) {
+            var newX = newCell[0]
+            var newY = newCell[1]
+            matrix[newY][newX] = matrix[this.y][this.x]
+            matrix[this.y][this.x] = 0
+            var NewElement = new das(newX, newY)
+            arr.push(NewElement)
+            this.x = newX
+            this.y = newY
+        }
+        else {
+            if (this.energy < 0) {
+                this.die()
+            }
+        }
+    }
+
+    eat(arr) {
+        this.getNewCoordinates()
+        var emptyCells = this.chooseCell(2)
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+
+        if (newCell) {
+            this.energy += 1
+            var newX = newCell[0]
+            var newY = newCell[1]
+
+            matrix[newY][newX] = matrix[this.y][this.x]
+            matrix[this.y][this.x] = 0
+            this.x = newX
+            this.y = newY
+            for (var i in arr) {
+                if (newX == arr[i].x && newY == arr[i].y) {
+                    arr.splice(i, 1)
+                    break
+                }
+            }
+        }
+        else {
+            this.move()
+        }
+    }
+
+    die(arr) {
+        matrix[this.y][this.x] = 0;
+        for (var i in arr) {
+            if (this.x == arr[i].x && this.y == arr[i].y) {
+                arr.splice(i, 1);
+                break;
+            }
+        }
+    }
 }

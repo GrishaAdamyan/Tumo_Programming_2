@@ -32,7 +32,7 @@ class Hunter {
         }
         return found;
     }
-
+/*
     move() {
         this.getNewCoordinates()
         this.energy -= 2
@@ -62,7 +62,7 @@ class Hunter {
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
-            this.energy++
+            this.energy += 1
             var newX = newCell[0]
             var newY = newCell[1]
 
@@ -91,4 +91,5 @@ class Hunter {
             }
         }
     }
+*/
 }

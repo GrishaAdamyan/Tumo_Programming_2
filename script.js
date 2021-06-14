@@ -78,21 +78,21 @@ function draw() {
             }
         }
         for (let i in GrassArr) {
-            try { GrassArr[i].mul(5, Grass, GrassArr, 1) } catch (err) { continue };
+            try { GrassArr[i].mul(5, Grass, GrassArr, 1, this.multiply, 0) } catch (err) { continue };
         }
 
         for (let i in GrassEaterArr) {
-            try { GrassEaterArr[i].eat() } catch (err) { continue };
-            try { GrassEaterArr[i].mul() } catch (err) { continue };
+            try { GrassEaterArr[i].eat(GrassArr) } catch (err) { continue };
+            try { GrassEaterArr[i].mul(10, GrassEater, GrassEaterArr, 2, this.energy, 6) } catch (err) { continue };
         }
 
         for (let i in PredatorArr) {
-            try { PredatorArr[i].eat() } catch (err) { continue };
-            try { PredatorArr[i].mul() } catch (err) { continue };
+            try { PredatorArr[i].eat(GrassEaterArr) } catch (err) { continue };
+            try { PredatorArr[i].mul(12, Predator, PredatorArr, 3, this.energy, 8) } catch (err) { continue };
         }
 
         for (let i in HunterArr) {
-            try { HunterArr[i].eat() } catch (err) { continue };
+            try { HunterArr[i].eat(PredatorArr) } catch (err) { continue };
         }
         count += 1
         if (count % 3 == 0 && count < 90) {

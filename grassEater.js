@@ -22,7 +22,7 @@ class GrassEater extends main {
         this.getNewCoordinates();
         return super.chooseCell(character);
     }
-
+/*
     mul() {
         var emptyCells = this.chooseCell(0)
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
@@ -40,7 +40,7 @@ class GrassEater extends main {
 
     move() {
         this.getNewCoordinates()
-        this.energy--
+        this.energy -= 1
         var emptyCells = this.chooseCell(0)
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
@@ -67,7 +67,7 @@ class GrassEater extends main {
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
-            this.energy++
+            this.energy += 1
             var newX = newCell[0]
             var newY = newCell[1]
 
@@ -96,4 +96,5 @@ class GrassEater extends main {
             }
         }
     }
+*/
 }
