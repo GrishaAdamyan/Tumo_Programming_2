@@ -1,4 +1,6 @@
-class Grass extends main {
+let main = require('./main')
+
+module.exports = class Grass extends main {
 /*
     mul() {
         this.multiply++;

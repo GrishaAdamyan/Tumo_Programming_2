@@ -55,7 +55,7 @@ function setup() {
 
 var count = 0
 
-function draw() {
+function drawing() {
     if (count <= 10) {
         for (var y = 0; y < matrix.length; y++) {
             for (var x = 0; x < matrix[y].length; x++) {
@@ -108,3 +108,5 @@ function draw() {
         }
     }
 }
+
+setInterval(drawing, 1000)

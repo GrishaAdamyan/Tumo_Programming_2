@@ -1,4 +1,6 @@
-class Hunter {
+let main = require('./main')
+
+module.exports = class Hunter {
     constructor(x, y) {
         this.x = x;
         this.y = y;

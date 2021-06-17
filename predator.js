@@ -1,4 +1,6 @@
-class Predator {
+let main = require('./main')
+
+module.exports = class Predator {
     constructor(x, y) {
         this.x = x;
         this.y = y;

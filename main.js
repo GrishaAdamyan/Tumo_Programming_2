@@ -1,4 +1,4 @@
-class main {
+module.exports = class main {
     constructor(x, y) {
         this.x = x;
         this.y = y;
