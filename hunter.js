@@ -34,7 +34,7 @@ module.exports = class Hunter {
         }
         return found;
     }
-/*
+
     move() {
         this.getNewCoordinates()
         this.energy -= 2
@@ -93,5 +93,4 @@ module.exports = class Hunter {
             }
         }
     }
-*/
 }

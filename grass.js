@@ -1,10 +1,10 @@
 let main = require('./main')
 
 module.exports = class Grass extends main {
-/*
+
     mul() {
         this.multiply++;
-        var emptyCells = this.chooseCell(0);
+        var emptyCells = super.chooseCell(0);
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         console.log(emptyCells);
@@ -16,6 +16,4 @@ module.exports = class Grass extends main {
             this.multiply = 0;
         }
     }
-
-*/
 }

@@ -34,7 +34,7 @@ module.exports = class Predator {
         }
         return found;
     }
-/*
+
     mul() {
         var emptyCells = this.chooseCell(0)
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
@@ -108,5 +108,4 @@ module.exports = class Predator {
             }
         }
     }
-*/
 }

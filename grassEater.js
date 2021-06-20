@@ -24,7 +24,7 @@ module.exports = class GrassEater extends main {
         this.getNewCoordinates();
         return super.chooseCell(character);
     }
-/*
+
     mul() {
         var emptyCells = this.chooseCell(0)
         var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
@@ -98,5 +98,4 @@ module.exports = class GrassEater extends main {
             }
         }
     }
-*/
 }
