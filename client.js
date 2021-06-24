@@ -8,7 +8,7 @@ function setup() {
 }
 
 function drawing(matrix) {
-    if (count <= 10) {
+    if (count <= 90) {
         for (var y = 0; y < matrix.length; y++) {
             for (var x = 0; x < matrix[y].length; x++) {
                 if (matrix[y][x] == 1) {
