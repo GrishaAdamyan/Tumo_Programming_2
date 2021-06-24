@@ -7,7 +7,7 @@ var fs = require("fs");
 app.use(express.static("."));
 
 app.get('/', function (req, res) {
-  res.redirect('index1.html');
+  res.redirect('index.html');
 });
 server.listen(3000);
 
@@ -20,8 +20,8 @@ io.on('connection', function (socket) {
     io.sockets.emit("display message", data);
   });
 });
-
-var matrix = []
+count = 0
+matrix = []
 for (var i = 0; i < 30; i++) {
   matrix[i] = []
   for (var j = 0; j < 30; j++) {

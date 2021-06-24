@@ -1,14 +1,13 @@
 var socket = io()
 
-side = 30
-
+var  side = 30
 function setup() {
     frameRate(3);
-    createCanvas(matrix[0].length * side, matrix.length * side);
+    createCanvas(30 * side, 30 * side);
     background('#acacac');
 }
 
-function drawing() {
+function drawing(matrix) {
     if (count <= 10) {
         for (var y = 0; y < matrix.length; y++) {
             for (var x = 0; x < matrix[y].length; x++) {

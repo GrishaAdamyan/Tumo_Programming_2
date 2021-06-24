@@ -1,4 +1,4 @@
-class AddCharacters {
+module.exports = class AddCharacters {
     constructor(x, y) {
         this.x = x;
         this.y = y;
