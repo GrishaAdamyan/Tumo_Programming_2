@@ -48,6 +48,7 @@ var GrassEaterArr = [];
 var PredatorArr = [];
 var HunterArr = [];
 
+weath = 'winter';
 Grass = require("./grass")
 GrassEater = require("./grassEater")
 Predator = require("./predator")
@@ -114,6 +115,84 @@ function game() {
 
 setInterval(game, 1000)
 
+function cleaner() {
+  var GrassArr = [];
+  var GrassEaterArr = [];
+  var PredatorArr = [];
+  var HunterArr = [];
+  for (var i = 0; i < matrix.length; i++) {
+    for (var j = 0; j < matrix[i].length; j++) {
+      matrix[i][j] = 0
+    }
+  }
+  io.sockets.emit("send matrix", matrix);
+}
+
+
+function addCharacters() {
+  for (var i = 0; i < matrix.length; i++) {
+    for (var j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] == 0) {
+        var a = Math.floor(Math.random() * 100)
+        if (a >= 0 && a < 60) {
+          matrix[i][j] = 0
+        }
+        else if (a >= 60 && a < 70) {
+          matrix[i][j] = 1
+        }
+        else if (a >= 70 && a < 80) {
+          matrix[i][j] = 2
+        }
+        else if (a >= 80 && a < 90) {
+          matrix[i][j] = 3
+        }
+        else if (a >= 90 && a < 100) {
+          matrix[i][j] = 4
+        }
+      }
+    }
+  }
+  io.sockets.emit("send matrix", matrix);
+}
+
+
+///new
+
+
+
+function weather() {
+  if (weath == "winter") {
+    weath = "spring"
+  }
+  else if (weath == "spring") {
+    weath = "summer"
+  }
+  else if (weath == "summer") {
+    weath = "autumn"
+  }
+  else if (weath == "autumn") {
+    weath = "winter"
+  }
+  io.sockets.emit('weather', weath)
+}
+setInterval(weather, 5000);
+
+
+////
+
 io.on('connection', function (socket) {
-  createObject(matrix)
-})
+  createObject();
+  socket.on("cleaner", cleaner);
+  socket.on("addCharacters", addCharacters);
+});
+
+
+var statistics = {};
+
+setInterval(function () {
+  statistics.grass = grassArr.length;
+  statistics.grassEater = grassEaterArr.length;
+  fs.writeFile("statistics.json", JSON.stringify(statistics), function () {
+    console.log("send")
+  })
+}, 1000)

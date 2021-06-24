@@ -1,6 +1,6 @@
 var socket = io()
 
-var  side = 30
+var side = 30
 function setup() {
     frameRate(3);
     createCanvas(30 * side, 30 * side);
@@ -13,6 +13,15 @@ function drawing(matrix) {
             for (var x = 0; x < matrix[y].length; x++) {
                 if (matrix[y][x] == 1) {
                     fill("green");
+                    if (weath == "summer") {
+                        fill("green");
+                    } else if (weath == "autumn") {
+                        fill("#333300");
+                    } else if (weath == "winter") {
+                        fill("white");
+                    } else if (weath == "spring") {
+                        fill("#4dffa6");
+                    }
                 }
                 else if (matrix[y][x] == 0) {
                     fill("#acacac");
@@ -37,3 +46,10 @@ setInterval(
         socket.on('send message', drawing)
     }, 1000
 )
+
+function cleaner() {
+    socket.emit("cleaner")
+}
+function addCharacters() {
+    socket.emit("addCharacters")
+}
