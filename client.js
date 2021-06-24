@@ -1,6 +1,6 @@
 var socket = io()
 
-side = 20
+side = 30
 
 function setup() {
     frameRate(3);
@@ -34,7 +34,7 @@ function drawing() {
 }
 
 setInterval(
-    function() {
+    function () {
         socket.on('send message', drawing)
     }, 1000
 )

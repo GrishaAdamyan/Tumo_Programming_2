@@ -1,6 +1,6 @@
 let main = require('./main')
 
-module.exports = class Predator {
+module.exports = class Predator extends main {
     constructor(x, y) {
         this.x = x;
         this.y = y;

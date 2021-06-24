@@ -1,7 +1,10 @@
 let main = require('./main')
 
 module.exports = class Grass extends main {
-
+    constructor(x, y, index, multiply) {
+        super(x, y, index, multiply);
+    }
+    
     mul() {
         this.multiply++;
         var emptyCells = super.chooseCell(0);

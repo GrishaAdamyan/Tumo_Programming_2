@@ -46,7 +46,7 @@ module.exports = class main {
             var_for_mul_and_energy = value;
         }
     }
-
+/*
     move(ind, NewElement, das, arr) {
         this.getNewCoordinates()
         this.energy -= ind
@@ -105,4 +105,5 @@ module.exports = class main {
             }
         }
     }
+*/
 }
