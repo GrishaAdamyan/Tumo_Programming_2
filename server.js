@@ -116,10 +116,10 @@ function game() {
 setInterval(game, 1000)
 
 function cleaner() {
-  var GrassArr = [];
-  var GrassEaterArr = [];
-  var PredatorArr = [];
-  var HunterArr = [];
+  GrassArr = [];
+  GrassEaterArr = [];
+  PredatorArr = [];
+  HunterArr = [];
   for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < matrix[i].length; j++) {
       matrix[i][j] = 0
