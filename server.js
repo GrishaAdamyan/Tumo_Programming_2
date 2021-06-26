@@ -190,8 +190,10 @@ io.on('connection', function (socket) {
 var statistics = {};
 
 setInterval(function () {
-  statistics.grass = grassArr.length;
-  statistics.grassEater = grassEaterArr.length;
+  statistics.grass = GrassArr.length;
+  statistics.grassEater = GrassEaterArr.length;
+  statistics.predator = PredatorArr.length;
+  statistics.hunter = HunterArr.length
   fs.writeFile("statistics.json", JSON.stringify(statistics), function () {
     console.log("send")
   })
