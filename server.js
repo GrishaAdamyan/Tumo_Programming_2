@@ -11,17 +11,22 @@ app.get('/', function (req, res) {
 });
 server.listen(3000);
 
-io.on('connection', function (socket) {
-  for (var i in messages) {
-    socket.emit("display message", messages[i]);
-  }
-  socket.on("send message", function (data) {
-    messages.push(data);
-    io.sockets.emit("display message", data);
-  });
-});
 count = 0
+
+GrassArr = [];
+GrassEaterArr = [];
+PredatorArr = [];
+HunterArr = [];
 matrix = []
+
+weath = 'winter';
+Grass = require("./grass")
+GrassEater = require("./grassEater")
+Predator = require("./predator")
+Hunter = require("./hunter")
+AddCharacters = require("./addCharacters")
+Clean = require("./cleaner")
+
 for (var i = 0; i < 30; i++) {
   matrix[i] = []
   for (var j = 0; j < 30; j++) {
@@ -43,20 +48,7 @@ for (var i = 0; i < 30; i++) {
 
 io.sockets.emit('send matrix', matrix)
 
-var GrassArr = [];
-var GrassEaterArr = [];
-var PredatorArr = [];
-var HunterArr = [];
-
-weath = 'winter';
-Grass = require("./grass")
-GrassEater = require("./grassEater")
-Predator = require("./predator")
-Hunter = require("./hunter")
-AddCharacters = require("./addCharacters")
-Cleaner = require("./cleaner")
-
-function createObject(matrix) {
+function createObject() {
   for (var y = 0; y < matrix.length; ++y) {
     for (var x = 0; x < matrix[y].length; ++x) {
       if (matrix[y][x] == 1) {
@@ -77,9 +69,9 @@ function createObject(matrix) {
       }
     }
   }
+  io.sockets.emit('send matrix', matrix)
 }
 
-io.sockets.emit('send matrix', matrix)
 
 function game() {
   for (let i in GrassArr) {
@@ -103,7 +95,6 @@ function game() {
   if (count % 3 == 0 && count < 90) {
     x = Math.floor(Math.random() * (matrix.length + 1))
     y = Math.floor(Math.random() * (matrix.length + 1))
-    console.log(x, y)
     var p = new AddCharacters(x, y)
     p.add()
   }
@@ -111,6 +102,7 @@ function game() {
     var c = new Cleaner()
     c.clean()
   }
+  io.sockets.emit("send matrix", matrix);
 }
 
 setInterval(game, 1000)
@@ -193,7 +185,7 @@ setInterval(function () {
   statistics.grass = GrassArr.length;
   statistics.grassEater = GrassEaterArr.length;
   statistics.predator = PredatorArr.length;
-  statistics.hunter = HunterArr.length
+  statistics.hunter = HunterArr.length;
   fs.writeFile("statistics.json", JSON.stringify(statistics), function () {
     console.log("send")
   })
