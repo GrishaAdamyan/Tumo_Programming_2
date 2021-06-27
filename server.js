@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 });
 server.listen(3000);
 
-count = 0
+//count = 0
 
 GrassArr = [];
 GrassEaterArr = [];
@@ -91,6 +91,7 @@ function game() {
   for (let i in HunterArr) {
     try { HunterArr[i].eat(PredatorArr) } catch (err) { continue };
   }
+  /*
   count += 1
   if (count % 3 == 0 && count < 90) {
     x = Math.floor(Math.random() * (matrix.length + 1))
@@ -102,6 +103,7 @@ function game() {
     var c = new Cleaner()
     c.clean()
   }
+  */
   io.sockets.emit("send matrix", matrix);
 }
 
