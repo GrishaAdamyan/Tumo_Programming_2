@@ -10,85 +10,80 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <script src="client.js"></script>
     <style>
+        body{
+            background-color: greenyellow;
+        }
         div {
-            margin-left: 40%;
+            margin-left: 41%;
         }
 
         ul {
-            margin-left: 50px;
+            margin-left: -90px;
         }
 
         #defaultCanvas0 {
-            margin-left: 40%;
-        }
-
-        button:hover {
-            background-color: aqua;
-            color: white;
-        }
-
-        button {
-            padding: 10px;
+            margin-left: 32%;
             border-radius: 12px;
-            transition-duration: 0.4s;
         }
+        .button {
+            display: inline-block;
+            border-radius: 12px;
+            background-color: aqua;
+            border: none;
+            color: black;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 350px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+        
+
     </style>
 
 </head>
 
 <body>
     <div class="tools">
-        <h1 style="color:yellowgreen">Events</h1>
+        <h1 style="color:black">GAME OF LIFE</h1>
+        <h2 style="color:black" class="name">ADAMYAN GRISHA</h2>
         <ul>
             <li>
-                <button onclick="cleaner()">Clean</button>
+                <button onclick="cleaner()" class=button style="vertical-align:middle"><span>Clean </span></button>
             </li><br>
             <li>
-                <button onclick="addCharacters()">Add Characters</button>
+                <button onclick="addCharacters()" class=button style="vertical-align:middle"><span>Add Characters
+                    </span></button>
             </li>
         </ul>
     </div>
 </body>
 
 </html>
-<!--
-.button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #f4511e;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  .button:hover span {
-    padding-right: 25px;
-  }
-  
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
--->
